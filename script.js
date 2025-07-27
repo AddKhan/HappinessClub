@@ -4,8 +4,9 @@
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
 const scoreMessage = document.getElementById(`userScore`);
 const refreshMessage = document.getElementById(`refreshError`);
+const resetButton = document.getElementById(`resetButton`);
 let generateCounter = 0;
-let dailyChallengesDone = 0;
+let dailyChallengesDone = 0; // TODO
 let days = 0; // TODO: days you completed all tasks
 const challengeList = [
     `Go for a walk`,
@@ -25,9 +26,15 @@ const challengeList = [
     `placeholderAction5`,
 ]
 
+// window onload TODO
+
 // perm score display
 scoreMessage.textContent = `Score: ` + myScore;
+if(myScore == 0){
+    resetButton.disabled = true;
+}
 
+///////////////////////////////////////////////////////////
 
 function generateChallenges(){
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
@@ -80,7 +87,6 @@ function refresh(){
 
 function resetScore(){
     const resetMessage = document.getElementById(`resetMessage`);
-    const resetButton = document.getElementById(`resetButton`);
 
     if(myScore > 0){
         myScore = 0;
