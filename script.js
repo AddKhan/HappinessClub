@@ -1,13 +1,23 @@
 // 7/27/25
 // daily-challenges.html
 
+// variables
+
+// score
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
+
+// DOI elements
 const scoreMessage = document.getElementById(`userScore`);
 const refreshMessage = document.getElementById(`refreshError`);
 const resetButton = document.getElementById(`resetButton`);
+const refreshButton = document.getElementById(`refreshButton`);
+
+//counters
 let generateCounter = 0;
 let dailyChallengesDone = 0; // TODO
 let days = 0; // TODO: days you completed all tasks
+
+//challenge list
 const challengeList = [
     `Go for a walk`,
     `Reflect on your day`,
@@ -32,6 +42,9 @@ const challengeList = [
 scoreMessage.textContent = `Score: ` + myScore;
 if(myScore == 0){
     resetButton.disabled = true;
+}
+if(generateCounter == 0){
+    refreshButton.disabled = true;
 }
 
 ///////////////////////////////////////////////////////////
@@ -65,16 +78,11 @@ function generateChallengeBoxes(selectedChallengeList){
 function generateTodaysChallenges(){
     generateChallenges();
     document.getElementById(`todaysChallengesButton`).style.display = `none`;
+    refreshButton.disabled = false;
 }
 
-function refresh(){
-    let refreshButton = document.getElementById(`refreshButton`);
-
-    if(generateCounter == 0){
-        refreshMessage.textContent = `Please generate today's challenges first!`;
-        refreshButton.disabled = true; // note 2 // TODO: should disable on when load window (window.onload)
-    }
-    else if(generateCounter > 2){
+function refresh(){// here 
+    if(generateCounter > 2){
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
         refreshButton.disabled = true;
         return;
