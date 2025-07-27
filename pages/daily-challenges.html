@@ -8,10 +8,20 @@
 </head>
 
 <body id="dailyChallenges">
-    daily
+    <h2>() Daily Challenges ()</h2>
+        <p>Complete 3 challenges per day to increase your score!<br>
+            Refresh below to view different challenges.</p>
 
+    <button onclick="generateChallenges()" class="challengeButtons">Today's Challenges</button>
+    <br>
+    <div id="challengesContainer">some challenge</div>
+    <br>
+    <button onclick="generateChallenges()" class="challengeButtons">Refresh</button>
+
+    <!-- HOMEPAGE LINK-->
+    <br><br>
     <a href="../index.html" target="_self">
-        <button id="returnHomepage">Return to Homepage</button>
+        <button id="returnHomepage" class="linkButtons">Return to Homepage</button> <!-- TODO: formate linkButtons class-->
     </a>
 
     <script src="script.js"></script>
