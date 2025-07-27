@@ -81,7 +81,7 @@
     transition: background-color 0.25s;
 }
 
-.challengeBox:hover{
+.challengeBox:hover:enabled{
     background-color: rgb(108, 169, 190);
     border-color: rgb(131, 196, 218);
     color: whitesmoke;
@@ -99,12 +99,12 @@
     cursor: pointer;
 }
 
-#doneButton:hover{
+#doneButton:hover:enabled{
     background-color: rgb(202, 202, 149);
     color: rgb(252, 255, 204);
 }
 
-#resetButton:hover{
+#resetButton:hover:enabled{
     background-color: rgb(174, 89, 74);
     color: rgb(248, 202, 193);
     border-color: rgb(174, 89, 74);

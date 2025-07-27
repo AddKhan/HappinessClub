@@ -87,17 +87,19 @@ function refresh(){
 }
 
 function resetScore(){
-    let resetMessage = document.getElementById(`resetMessage`);
+    const resetMessage = document.getElementById(`resetMessage`);
+    const resetButton = document.getElementById(`resetButton`);
+
     if(myScore > 0){
         myScore = 0;
         localStorage.setItem(`myScore`, myScore);
 
         scoreMessage.textContent = `Score: ` + myScore;
         resetMessage.textContent = `Your score has been reset.`;
-        document.getElementById(`resetButton`).disabled = true;
+        resetButton.disabled = true;
     }
     else{
-        resetMessage.textContent = `Your score is already 0.`;
+        resetButton.disabled = true;
     }
 }
 
