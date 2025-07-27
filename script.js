@@ -23,13 +23,14 @@ const challengeList = [
 
 function generateChallenges(){
     if(refreshCounter > 2){
-        // set paragraph text to smth like "no more refreshes left!"
+        document.getElementById(`refreshHitMax`).textContent = `You don't have any refreshes left!
+                                                                Please attempt the current challenges.`;
         return;
     }
     else{
         refreshCounter++;
     }
-    
+
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
 
