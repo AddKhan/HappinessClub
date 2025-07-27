@@ -3,6 +3,8 @@
 - # id
 */
 
+/* General */
+
 #homepage{
     background-color: rgb(175, 235, 255);
     text-align: center;
@@ -32,10 +34,14 @@
     color: rgb(252, 255, 204);
 }
 
+/* Homepage */
+
 /*9:43 am:
     - for this branch, start by adding style to challenge boxes
     - then added function to boxes with a completed checkmark to darken the box or smth
 */
+
+/* Daily Challenges Page */
 
 .challengeButtons{
     background-color: rgb(252, 255, 204);
