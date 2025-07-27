@@ -15,6 +15,23 @@
     font-family: 'Gill Sans MT';
 }
 
+.linkButtons{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+.linkButtons:hover{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
 /*9:43 am:
     - for this branch, start by adding style to challenge boxes
     - then added function to boxes with a completed checkmark to darken the box or smth
