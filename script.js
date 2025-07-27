@@ -81,7 +81,7 @@ function generateTodaysChallenges(){
 }
 
 function refresh(){// here 
-    if(generateCounter > 2){
+    if(generateCounter >= 2){
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
         refreshButton.disabled = true;
         return;
