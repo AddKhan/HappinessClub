@@ -56,16 +56,8 @@ function generateChallengeBoxes(selectedChallengeList){
 }
 
 function generateTodaysChallenges(){
-    if(generateCounter > 2){
-        refreshMessage.textContent = `Please attempt the current challenges.`;
-    }
-    else if(generateCounter > 0){
-        refreshMessage.textContent = `Please use "Refresh" to generate new tasks!`;
-    }
-    else{
-        refreshMessage.textContent = ``;
-        generateChallenges();
-    }
+    generateChallenges();
+    document.getElementById(`todaysChallengesButton`).style.display = `none`;
 }
 
 function refresh(){
