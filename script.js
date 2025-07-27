@@ -22,19 +22,12 @@ const challengeList = [
 ]
 
 function generateChallenges(){
-    if(refreshCounter > 2){
-        document.getElementById(`refreshHitMax`).textContent = `You don't have any refreshes left!
-                                                                Please attempt the current challenges.`;
-        return;
-    }
-    else{
-        refreshCounter++;
-    }
-
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
 
     generateChallengeBoxes(selectedChallengeList);
+    refreshCounter++;
+    console.log(refreshCounter);
 }
 
 function generateChallengeBoxes(selectedChallengeList){
@@ -47,4 +40,20 @@ function generateChallengeBoxes(selectedChallengeList){
         box.textContent = action;
         challengeListContainer.appendChild(box)
     });
+}
+
+function refresh(){
+    let refreshMessage = document.getElementById(`refreshError`);
+
+    if(refreshCounter == 0){
+        refreshMessage.textContent = `Please generate today's challenges first!`;
+    }
+    else if(refreshCounter > 2){
+        refreshMessage.textContent = `You don't have any refreshes left!
+                                                                Please attempt the current challenges.`;
+        return;
+    }
+    else{
+        generateChallenges();
+    }
 }
