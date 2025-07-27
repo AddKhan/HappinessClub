@@ -2,6 +2,7 @@
 // daily-challenges.html
 
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
+let scoreMessage = document.getElementById(`userScore`);
 let refreshMessage = document.getElementById(`refreshError`);
 let generateCounter = 0;
 const challengeList = [
@@ -23,7 +24,7 @@ const challengeList = [
 ]
 
 // perm score display
-document.getElementById(`userScore`).textContent = `Score: ` + myScore;
+scoreMessage.textContent = `Score: ` + myScore;
 
 
 function generateChallenges(){
@@ -81,13 +82,27 @@ function refresh(){
     }
 }
 
+function resetScore(){
+    let resetMessage = document.getElementById(`resetMessage`);
+    if(myScore > 0){
+        myScore = 0;
+        localStorage.setItem(`myScore`, myScore);
+
+        scoreMessage.textContent = `Score: ` + myScore;
+        resetMessage.textContent = `Your score has been reset.`;
+    }
+    else{
+        resetMessage.textContent = `Your score is already 0.`;
+    }
+}
+
 function markAsDone(button){
     button.disabled = true;
     button.textContent = `Challenge Completed!`;
 
     myScore++;
     localStorage.setItem(`myScore`, myScore)
-    document.getElementById(`userScore`).textContent = `Score: ` + myScore;
+    scoreMessage.textContent = `Score: ` + myScore;
 }
     
 
