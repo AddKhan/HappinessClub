@@ -37,17 +37,21 @@ function generateChallengeBoxes(selectedChallengeList){
 
     selectedChallengeList.forEach(action => { // for each challenge (action) in the selected list of 3
         const box = document.createElement(`div`);
-        box.className = `challenge-box`;
+        box.className = `challengeBox`;
         box.textContent = action;
         challengeListContainer.appendChild(box)
     });
 }
 
 function generateTodaysChallenges(){
-    if(generateCounter > 0){
+    if(generateCounter > 2){
+        refreshMessage.textContent = `Please attempt the current challenges.`;
+    }
+    else if(generateCounter > 0){
         refreshMessage.textContent = `Please use "Refresh" to generate new tasks!`;
     }
     else{
+        refreshMessage.textContent = ``;
         generateChallenges();
     }
 }
@@ -63,6 +67,7 @@ function refresh(){
         return;
     }
     else{
+        refreshMessage.textContent = ``;
         generateChallenges();
     }
 }

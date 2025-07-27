@@ -3,14 +3,91 @@
 - # id
 */
 
+/* General */
+
 #homepage{
     background-color: rgb(175, 235, 255);
     text-align: center;
     font-family: 'Gill Sans MT';
 }
 
-#dailyChallenges{
+#dailyChallengesPage{
     background-color: rgb(175, 235, 255);
     text-align: center;
     font-family: 'Gill Sans MT';
 }
+
+.linkButtons{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+.linkButtons:hover{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
+/* Homepage */
+
+/*9:43 am:
+    - for this branch, start by adding style to challenge boxes
+    - then added function to boxes with a completed checkmark to darken the box or smth
+*/
+
+/* Daily Challenges Page */
+
+.challengeButtons{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+.challengeButtons:hover{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
+.challengeBox{
+    background-color: rgb(131, 196, 218);
+    color: whitesmoke;
+    text-align: left;
+    font-size: 1em;
+    font-family: 'Gill Sans MT';
+    padding: 25px 50px;
+    border-radius: 10px;
+    border: rgb(108, 169, 190) solid 2px; /* note 1 */
+    display: block;
+    margin: 15px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.challengeBox:hover{
+    background-color: rgb(108, 169, 190);
+    border-color: rgb(131, 196, 218);
+    color: whitesmoke;
+}
+
+/*
+    NOTES:
+
+    1.
+        border-color: red;
+        border-width: 2px;
+        border-style: solid;
+        --> shortened to
+        border: red solid 2 px;
+*/
