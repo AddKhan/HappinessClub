@@ -9,11 +9,13 @@ let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is
 // DOI elements
 const scoreMessage = document.getElementById(`userScore`);
 const refreshMessage = document.getElementById(`refreshError`);
+const refreshLeftMessage = document.getElementById(`refreshLeft`);
 const resetButton = document.getElementById(`resetButton`);
 const refreshButton = document.getElementById(`refreshButton`);
 
 //counters
 let generateCounter = 0;
+let refreshLeft = 2;
 let dailyChallengesDone = 0; // TODO
 let days = 0; // TODO: days you completed all tasks
 
@@ -90,15 +92,21 @@ function markAsDone(button){
     resetButton.disabled = false;
 }
 
-function refresh(){ 
-    if(generateCounter >= 2){
-        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
-        refreshButton.disabled = true;
-        return;
+function refresh(){
+    if(refreshLeft > 0){
+        refreshLeft--;
+        refreshLeftMessage.textContent = `You have ${refreshLeft} refreshes left.`;
+        generateChallenges();
     }
     else{
         refreshMessage.textContent = ``;
         generateChallenges();
+    }
+
+    if(refreshLeft == 0){
+        refreshLeftMessage.textContent = ``;
+        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
+        refreshButton.disabled = true;
     }
 }
 
@@ -109,7 +117,7 @@ function resetScore(){
         myScore = 0;
         localStorage.setItem(`myScore`, myScore);
 
-        scoreMessage.textContent = `Score: ` + myScore;
+        scoreMessage.textContent = `Score: ${myScore}`;
         resetMessage.textContent = `Your score has been reset.`;
         resetButton.disabled = true;
     }
