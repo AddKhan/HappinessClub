@@ -2,6 +2,7 @@
 // daily-challenges.html
 
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
+let refreshCounter = 0;
 const challengeList = [
     `Go for a walk`,
     `Reflect on your day`,
@@ -21,10 +22,16 @@ const challengeList = [
 ]
 
 function generateChallenges(){
+    if(refreshCounter > 2){
+        // set paragraph text to smth like "no more refreshes left!"
+        return;
+    }
+    else{
+        refreshCounter++;
+    }
+    
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
-
-    console.log('hello1'); // delete
 
     generateChallengeBoxes(selectedChallengeList);
 }
@@ -33,12 +40,10 @@ function generateChallengeBoxes(selectedChallengeList){
     const challengeListContainer = document.getElementById(`displayChallengeList`);
     challengeListContainer.innerHTML = ``;
 
-    selectedChallengeList.forEach(action => {
+    selectedChallengeList.forEach(action => { // for each challenge (action) in the selected list of 3
         const box = document.createElement(`div`);
         box.className = `challenge-box`;
         box.textContent = action;
         challengeListContainer.appendChild(box)
     });
-
-    console.log('hello2'); // delete
 }
