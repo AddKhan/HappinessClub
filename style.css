@@ -45,14 +45,26 @@
     font-family: 'Gill Sans MT';
     padding: 25px 50px;
     border-radius: 10px;
-    border-color: red;
+    border: rgb(108, 169, 190) solid 2px; /* note 1 */
     display: block;
-    margin: 10px 0;
+    margin: 15px;
     cursor: pointer;
     transition: background-color 0.25s;
 }
 
 .challengeBox:hover{
-    background-color: black;
+    background-color: rgb(108, 169, 190);
+    border-color: rgb(131, 196, 218);
     color: whitesmoke;
 }
+
+/*
+    NOTES:
+
+    1.
+        border-color: red;
+        border-width: 2px;
+        border-style: solid;
+        --> shortened to
+        border: red solid 2 px;
+*/
