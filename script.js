@@ -47,10 +47,11 @@ function refresh(){
 
     if(refreshCounter == 0){
         refreshMessage.textContent = `Please generate today's challenges first!`;
+        // TODO: add button blackedout ?
     }
     else if(refreshCounter > 2){
-        refreshMessage.textContent = `You don't have any refreshes left!
-                                                                Please attempt the current challenges.`;
+        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
+        // TODO: add button blackedout ?
         return;
     }
     else{
