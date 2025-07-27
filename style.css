@@ -9,7 +9,7 @@
     font-family: 'Gill Sans MT';
 }
 
-#dailyChallenges{
+#dailyChallengesPage{
     background-color: rgb(175, 235, 255);
     text-align: center;
     font-family: 'Gill Sans MT';
@@ -20,6 +20,23 @@
     - then added function to boxes with a completed checkmark to darken the box or smth
 */
 
+.challengeButtons{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+.challengeButtons:hover{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
 .challengeBox{
     background-color: rgb(131, 196, 218);
     color: whitesmoke;
@@ -29,6 +46,8 @@
     padding: 25px 50px;
     border-radius: 10px;
     border-color: red;
+    display: block;
+    margin: 10px 0;
     cursor: pointer;
     transition: background-color 0.25s;
 }
