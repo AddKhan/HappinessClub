@@ -2,7 +2,8 @@
 // daily-challenges.html
 
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
-let refreshCounter = 0;
+let refreshMessage = document.getElementById(`refreshError`);
+let generateCounter = 0;
 const challengeList = [
     `Go for a walk`,
     `Reflect on your day`,
@@ -26,8 +27,8 @@ function generateChallenges(){
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
 
     generateChallengeBoxes(selectedChallengeList);
-    refreshCounter++;
-    console.log(refreshCounter);
+    generateCounter++;
+    console.log(generateCounter);
 }
 
 function generateChallengeBoxes(selectedChallengeList){
@@ -42,14 +43,21 @@ function generateChallengeBoxes(selectedChallengeList){
     });
 }
 
-function refresh(){
-    let refreshMessage = document.getElementById(`refreshError`);
+function generateTodaysChallenges(){
+    if(generateCounter > 0){
+        refreshMessage.textContent = `Please use "Refresh" to generate new tasks!`;
+    }
+    else{
+        generateChallenges();
+    }
+}
 
-    if(refreshCounter == 0){
+function refresh(){
+    if(generateCounter == 0){
         refreshMessage.textContent = `Please generate today's challenges first!`;
         // TODO: add button blackedout ?
     }
-    else if(refreshCounter > 2){
+    else if(generateCounter > 2){
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
         // TODO: add button blackedout ?
         return;
