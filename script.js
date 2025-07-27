@@ -55,7 +55,6 @@ function generateChallenges(){
 
     generateChallengeBoxes(selectedChallengeList);
     generateCounter++;
-    console.log(generateCounter);
 }
 
 function generateChallengeBoxes(selectedChallengeList){
@@ -106,6 +105,7 @@ function resetScore(){
     }
     else{
         resetButton.disabled = true;
+        console.log(`reset else caught`); // todo: test if this works, if not delete
     }
 }
 
@@ -116,6 +116,7 @@ function markAsDone(button){
     myScore++;
     localStorage.setItem(`myScore`, myScore)
     scoreMessage.textContent = `Score: ` + myScore;
+    resetButton.disabled = false;
 }
     
 
