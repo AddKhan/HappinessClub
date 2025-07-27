@@ -81,6 +81,23 @@
     color: whitesmoke;
 }
 
+#doneButton{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+#doneButton:hover{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
 /*
     NOTES:
 
