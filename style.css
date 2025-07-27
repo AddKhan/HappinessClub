@@ -55,10 +55,16 @@
     cursor: pointer;
 }
 
-.challengeButtons:hover{
+.challengeButtons:hover:enabled{
     background-color: rgb(202, 202, 149);
     color: rgb(252, 255, 204);
 }
+
+.challengeButtons:disabled{
+    background-color: green; /* TODO: fix color, add disable effect for today's challenge, reset, refresh*/
+    cursor: default;
+}
+
 
 .challengeBox{
     background-color: rgb(131, 196, 218);

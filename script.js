@@ -2,9 +2,11 @@
 // daily-challenges.html
 
 let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is 0
-let scoreMessage = document.getElementById(`userScore`);
-let refreshMessage = document.getElementById(`refreshError`);
+const scoreMessage = document.getElementById(`userScore`);
+const refreshMessage = document.getElementById(`refreshError`);
 let generateCounter = 0;
+let dailyChallengesDone = 0;
+let days = 0; // TODO: days you completed all tasks
 const challengeList = [
     `Go for a walk`,
     `Reflect on your day`,
@@ -67,13 +69,15 @@ function generateTodaysChallenges(){
 }
 
 function refresh(){
+    let refreshButton = document.getElementById(`refreshButton`);
+
     if(generateCounter == 0){
         refreshMessage.textContent = `Please generate today's challenges first!`;
-        // TODO: add button blackedout ?
+        refreshButton.disabled = true; // note 2 // TODO: should disable on when load window (window.onload)
     }
     else if(generateCounter > 2){
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
-        // TODO: add button blackedout ?
+        refreshButton.disabled = true;
         return;
     }
     else{
@@ -90,6 +94,7 @@ function resetScore(){
 
         scoreMessage.textContent = `Score: ` + myScore;
         resetMessage.textContent = `Your score has been reset.`;
+        document.getElementById(`resetButton`).disabled = true;
     }
     else{
         resetMessage.textContent = `Your score is already 0.`;
@@ -111,4 +116,7 @@ function markAsDone(button){
 
     Note 1
         - .innerHTML allows you to set what appears in the html from the js file :D
+
+    Note 2
+        - myButton.style.display = `none`; // hides button
 */
