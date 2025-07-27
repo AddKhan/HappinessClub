@@ -14,3 +14,26 @@
     text-align: center;
     font-family: 'Gill Sans MT';
 }
+
+/*9:43 am:
+    - for this branch, start by adding style to challenge boxes
+    - then added function to boxes with a completed checkmark to darken the box or smth
+*/
+
+.challengeBox{
+    background-color: rgb(131, 196, 218);
+    color: whitesmoke;
+    text-align: left;
+    font-size: 1em;
+    font-family: 'Gill Sans MT';
+    padding: 25px 50px;
+    border-radius: 10px;
+    border-color: red;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.challengeBox:hover{
+    background-color: black;
+    color: whitesmoke;
+}

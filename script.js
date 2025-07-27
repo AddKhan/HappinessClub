@@ -37,7 +37,7 @@ function generateChallengeBoxes(selectedChallengeList){
 
     selectedChallengeList.forEach(action => { // for each challenge (action) in the selected list of 3
         const box = document.createElement(`div`);
-        box.className = `challenge-box`;
+        box.className = `challengeBox`;
         box.textContent = action;
         challengeListContainer.appendChild(box)
     });
