@@ -35,10 +35,15 @@ function generateChallengeBoxes(selectedChallengeList){
     const challengeListContainer = document.getElementById(`displayChallengeList`);
     challengeListContainer.innerHTML = ``;
 
-    selectedChallengeList.forEach(action => { // for each challenge (action) in the selected list of 3
+    selectedChallengeList.forEach((action, i) => { // for each challenge (action) in the selected list of 3
         const box = document.createElement(`div`);
         box.className = `challengeBox`;
-        box.textContent = action;
+        // box.textContent = `${i + 1}. ${action}`;
+        box.innerHTML = `
+        ${i + 1}. ${action}
+        <br><br>
+        <button id="doneButton" onclick="markAsDone(this)">Mark as Done</button>
+        `; // note 1
         challengeListContainer.appendChild(box)
     });
 }
@@ -71,3 +76,17 @@ function refresh(){
         generateChallenges();
     }
 }
+
+function markAsDone(button){
+    button.disabled = true;
+    button.textContent = `Challenge Completed!`;
+    // update points
+}
+    
+
+/*
+    NOTES:
+
+    Note 1
+        - .innerHTML allows you to set what appears in the html from the js file :D
+*/
