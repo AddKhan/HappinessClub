@@ -22,6 +22,10 @@ const challengeList = [
     `placeholderAction5`,
 ]
 
+// perm score display
+document.getElementById(`userScore`).textContent = `Score: ` + myScore;
+
+
 function generateChallenges(){
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
@@ -80,7 +84,10 @@ function refresh(){
 function markAsDone(button){
     button.disabled = true;
     button.textContent = `Challenge Completed!`;
-    // update points
+
+    myScore++;
+    localStorage.setItem(`myScore`, myScore)
+    document.getElementById(`userScore`).textContent = `Score: ` + myScore;
 }
     
 
