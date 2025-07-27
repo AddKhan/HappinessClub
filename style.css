@@ -3,7 +3,13 @@
 - # id
 */
 
-#page{
+#homepage{
+    background-color: rgb(175, 235, 255);
+    text-align: center;
+    font-family: 'Gill Sans MT';
+}
+
+#dailyChallenges{
     background-color: rgb(175, 235, 255);
     text-align: center;
     font-family: 'Gill Sans MT';

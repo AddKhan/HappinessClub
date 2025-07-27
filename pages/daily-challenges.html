@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Daily Challenges | Happiness Club</title>
+</head>
+
+<body id="dailyChallenges">
+    <h2>() Daily Challenges ()</h2>
+        <p>Complete 3 challenges per day to increase your score!<br>
+            Refresh below to view different challenges.</p>
+
+    <button onclick="generateTodaysChallenges()" class="challengeButtons">Today's Challenges</button>
+    <br>
+    <div id="displayChallengeList" class="challengeContainer">
+        
+    </div>
+    <br>
+    <button onclick="refresh()" class="challengeButtons">Refresh</button>
+        <p id="refreshError"></p>
+
+    <!-- HOMEPAGE LINK-->
+    <br><br>
+    <a href="../index.html" target="_self">
+        <button id="returnHomepage" class="linkButtons">Return to Homepage</button> <!-- TODO: formate linkButtons class-->
+    </a>
+
+    <script src="../script.js"></script>
+</body>
+</html>
