@@ -49,6 +49,12 @@ if(generateCounter == 0){
 
 ///////////////////////////////////////////////////////////
 
+function generateTodaysChallenges(){
+    generateChallenges();
+    document.getElementById(`todaysChallengesButton`).style.display = `none`;
+    refreshButton.disabled = false;
+}
+
 function generateChallenges(){
     let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
@@ -74,13 +80,17 @@ function generateChallengeBoxes(selectedChallengeList){
     });
 }
 
-function generateTodaysChallenges(){
-    generateChallenges();
-    document.getElementById(`todaysChallengesButton`).style.display = `none`;
-    refreshButton.disabled = false;
+function markAsDone(button){
+    button.disabled = true;
+    button.textContent = `Challenge Completed!`;
+
+    myScore++;
+    localStorage.setItem(`myScore`, myScore)
+    scoreMessage.textContent = `Score: ` + myScore;
+    resetButton.disabled = false;
 }
 
-function refresh(){// here 
+function refresh(){ 
     if(generateCounter >= 2){
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
         refreshButton.disabled = true;
@@ -108,18 +118,7 @@ function resetScore(){
         console.log(`reset else caught`); // todo: test if this works, if not delete
     }
 }
-
-function markAsDone(button){
-    button.disabled = true;
-    button.textContent = `Challenge Completed!`;
-
-    myScore++;
-    localStorage.setItem(`myScore`, myScore)
-    scoreMessage.textContent = `Score: ` + myScore;
-    resetButton.disabled = false;
-}
     
-
 /*
     NOTES:
 
