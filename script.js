@@ -95,7 +95,7 @@ function markAsDone(button){
 function refresh(){
     if(refreshLeft > 0){
         refreshLeft--;
-        refreshLeftMessage.textContent = `You have ${refreshLeft} refreshes left.`;
+        refreshLeftMessage.textContent = `You have ${refreshLeft} refresh left.`;
         generateChallenges();
     }
     else{
