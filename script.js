@@ -16,7 +16,7 @@ const refreshButton = document.getElementById(`refreshButton`);
 //counters
 let generateCounter = 0;
 let refreshLeft = 2;
-let dailyChallengesDone = 0; // TODO
+let dailyChallengesDone = 0; // TODO: make a limit to daily challenges done (3), would need to figure out time keeping first ?
 let days = 0; // TODO: days you completed all tasks
 
 //challenge list
@@ -38,16 +38,19 @@ const challengeList = [
     `placeholderAction5`,
 ]
 
-// window onload TODO
+// runs on page load
+document.addEventListener("DOMContentLoaded", function(){
+    // permanent score display
+    scoreMessage.textContent = `Score: ` + myScore;
 
-// perm score display
-scoreMessage.textContent = `Score: ` + myScore;
-if(myScore == 0){
-    resetButton.disabled = true;
-}
-if(generateCounter == 0){
-    refreshButton.disabled = true;
-}
+    if(myScore == 0){
+        resetButton.disabled = true;
+    }
+
+    if(generateCounter == 0){
+        refreshButton.disabled = true;
+    }
+});
 
 ///////////////////////////////////////////////////////////
 
