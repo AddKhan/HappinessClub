@@ -76,8 +76,8 @@ function generateChallengeBoxes(selectedChallengeList){
         box.innerHTML = `
         ${i + 1}. ${action}
         <br><br>
-        <button id="doneButton" onclick="markAsDone(this)">Mark as Done</button>
-        `; // note 1
+        <button onclick="markAsDone(this)" id="doneButton" class="challengeButtons">Mark as Done</button>
+        `; // note 1 // TODO: future, want doneButton to be in challengeButtons class to delete extra css (they have same func...)
         challengeListContainer.appendChild(box)
     });
 }
