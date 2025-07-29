@@ -8,16 +8,26 @@
 </head>
 
 <body id="dailyChallengesPage">
-    <h2>() Daily Challenges ()</h2>
+    <h2>🌟 Daily Challenges 🌟</h2>
         <p>Complete 3 challenges per day to increase your score!<br>
             Refresh below to view different challenges.</p>
 
-    <button onclick="generateTodaysChallenges()" class="challengeButtons">Today's Challenges</button>
+    <button onclick="generateTodaysChallenges()" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
     <br>
     <div id="displayChallengeList" class="challengeContainer"></div>
     <br>
-    <button onclick="refresh()" class="challengeButtons">Refresh</button>
+    <button onclick="refresh()" id="refreshButton" class="challengeButtons">Refresh</button>
+        <p id="refreshLeft"></p>
         <p id="refreshError"></p>
+
+    <br><br>
+
+    <div id="userScoreBox"> <!-- TODO: style userScoreBox -->
+        <p id="userScore"></p>
+    </div>
+
+    <button onclick="resetScore()" id="resetButton" class="challengeButtons">Reset Score</button>
+    <p id="resetMessage"></p>
 
     <!-- HOMEPAGE LINK-->
     <br><br>

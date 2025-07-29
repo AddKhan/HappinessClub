@@ -3,7 +3,7 @@
 - # id
 */
 
-/* General */
+/*** GENERAL ***/
 
 #homepage{
     background-color: rgb(175, 235, 255);
@@ -34,14 +34,11 @@
     color: rgb(252, 255, 204);
 }
 
-/* Homepage */
+/*** HOMEPAGE ***/
 
-/*9:43 am:
-    - for this branch, start by adding style to challenge boxes
-    - then added function to boxes with a completed checkmark to darken the box or smth
-*/
+/*** DAILY CHALLENGES PAGE ***/
 
-/* Daily Challenges Page */
+/* Challenge Buttons */
 
 .challengeButtons{
     background-color: rgb(252, 255, 204);
@@ -55,10 +52,18 @@
     cursor: pointer;
 }
 
-.challengeButtons:hover{
+.challengeButtons:hover:enabled{
     background-color: rgb(202, 202, 149);
     color: rgb(252, 255, 204);
 }
+
+.challengeButtons:disabled{
+    background-color: rgb(202, 202, 149, 0.385);
+    color: rgba(252, 255, 204, 0.385);
+    cursor: default;
+}
+
+/* Challenge List */
 
 .challengeBox{
     background-color: rgb(131, 196, 218);
@@ -71,16 +76,57 @@
     border: rgb(108, 169, 190) solid 2px; /* note 1 */
     display: block;
     margin: 15px;
-    cursor: pointer;
     transition: background-color 0.25s;
 }
 
-.challengeBox:hover{
+.challengeBox:hover:enabled{
     background-color: rgb(108, 169, 190);
     border-color: rgb(131, 196, 218);
     color: whitesmoke;
 }
 
+/* .challengeBox.disabledBox{
+    background-color: rgb(202, 202, 149, 0.385);
+    color: rgba(252, 255, 204, 0.385);
+    border-color: rgba(188, 188, 139, 0.385);
+    cursor: default;
+    pointer-events: none;
+}  */ /* TODO: decide if want this, changes whole challenge to look disabled*/
+
+/* Mark as Done Buttons */
+
+#doneButton{
+    background-color: rgb(252, 255, 204);
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'Gill Sans MT';
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color: rgb(202, 202, 149);
+    cursor: pointer;
+}
+
+#doneButton:hover:enabled{
+    background-color: rgb(202, 202, 149);
+    color: rgb(252, 255, 204);
+}
+
+#doneButton:disabled{
+    background-color: rgb(202, 202, 149, 0.385);
+    color: rgba(252, 255, 204, 0.475);
+    cursor: default;
+}
+
+/* Reset Button */
+
+#resetButton:hover:enabled{
+    background-color: rgb(174, 89, 74);
+    color: rgb(248, 202, 193);
+    border-color: rgb(174, 89, 74);
+}
+
+/**********************************************************/
 /*
     NOTES:
 
