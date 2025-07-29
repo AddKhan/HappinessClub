@@ -84,6 +84,7 @@ function generateChallengeBoxes(selectedChallengeList){
 
 function markAsDone(button){
     button.disabled = true;
+    button.parentElement.classList.add('disabledBox');
     button.textContent = `Challenge Completed!`;
 
     myScore++;
