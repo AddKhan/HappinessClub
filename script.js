@@ -21,21 +21,24 @@ let days = 0; // TODO: days you completed all tasks
 
 //challenge list
 const challengeList = [
-    `Go for a walk`,
-    `Reflect on your day`,
-    `Compliment a stranger`,
-    `Make a new friend`,
-    `Donate an item`,
-    `Volunteer`,
-    `Call someone you haven't talked to in a while`,
-    `Help a stranger`,
-    `Try a new food`,
-    `Catch up with old friends`,
-    `placeholderAction1`,
-    `placeholderAction2`,
-    `placeholderAction3`,
-    `placeholderAction4`,
-    `placeholderAction5`,
+    `Go for a walk 🚶`,
+    `Reflect on your day ✏️`,
+    `Compliment a stranger 💐`,
+    `Make a new friend 💛`,
+    `Donate an item 🎁`,
+    `Volunteer at a local shelter 🤝`,
+    `Call someone you haven't talked to in a while ☎️`,
+    `Help a stranger 🤝`,
+    `Try a new food 🍔`,
+    `Catch up with old friends 🧑‍🤝‍🧑`,
+    `Learn a new game 🎲`,
+    `Play a sport 🏓`,
+    `Pick up an old hobby 🖍️`,
+    `Grow a plant 🌱`,
+    `Clean your home 🏠`,
+    `Go out of your comfort zone 🪂`,
+    `Explore a new area 🚗`,
+    `Try a new recipe 🥘`
 ]
 
 // runs on page load
@@ -79,7 +82,7 @@ function generateChallengeBoxes(selectedChallengeList){
         box.innerHTML = `
         ${i + 1}. ${action}
         <br><br>
-        <button onclick="markAsDone(this)" id="doneButton" class="challengeButtons">Mark as Done</button>
+        <button onclick="markAsDone(this)" id="doneButton" class="challengeButtons">✅ Mark as Done</button>
         `; // note 1 // TODO: future, want doneButton to be in challengeButtons class to delete extra css (they have same func...)
         challengeListContainer.appendChild(box)
     });
@@ -88,7 +91,7 @@ function generateChallengeBoxes(selectedChallengeList){
 function markAsDone(button){
     button.disabled = true;
     button.parentElement.classList.add('disabledBox');
-    button.textContent = `Challenge Completed!`;
+    button.textContent = `Challenge Completed! 🎉`;
 
     myScore++;
     localStorage.setItem(`myScore`, myScore)
