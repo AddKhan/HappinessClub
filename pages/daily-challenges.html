@@ -12,6 +12,7 @@
         <p>Complete 3 challenges per day to increase your score!<br>
             Refresh below to view different challenges.</p>
 
+    <!-- Generate Mixed Challenges -->
     <button onclick="generateTodaysChallenges()" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
     <br>
     <div id="displayChallengeList" class="challengeContainer"></div>
@@ -21,13 +22,32 @@
         <p id="refreshError"></p>
 
     <br><br>
-
+    
+    <!-- User Score -->
     <div id="userScoreBox"> <!-- TODO: style userScoreBox -->
         <p id="userScore"></p>
     </div>
 
     <button onclick="resetScore()" id="resetButton" class="challengeButtons">Reset Score</button>
     <p id="resetMessage"></p>
+
+    <br><br>
+
+    <!-- Challenge Categories -->
+    <h3>🌟 Challenge Categories 🌟</h3> 
+    
+    <table width=100%>
+        <tr>
+            <th width=33.33%><button onclick="generateChallenges()" id="healthChallenge" class="challengeButtons">Health</button></th> <!-- TODO: basically make generateChallenges() take in a specific type of list then make generateBoxes take in a certain doi elem id, currently dispalyChallenge list, so that it can print in a different div area !-->
+            <th width=33.33%><button onclick="generateChallenges()" id="socialChallenge" class="challengeButtons">Social</button></th>
+            <th width=33.33%><button onclick="generateChallenges()" id="creativeChallenge" class="challengeButtons">Creative</button></th>
+        </tr>
+        <tr>
+            <th><div id="displayHealthChallengeList">health activities</div></th>
+            <th><div id="displaySocialChallengeList">social activities</div></th>
+            <th><div id="displayCreativeChallengeList">creative activities</div></th>
+        </tr>
+    </table>
 
     <!-- HOMEPAGE LINK-->
     <br><br>
