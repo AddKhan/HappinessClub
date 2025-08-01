@@ -122,7 +122,7 @@ function refresh(challengeCategory, targetContainer){
 
     if(refreshLeft == 0){
         refreshLeftMessage.textContent = ``;
-        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges.`;
+        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges or generate by category.`;
         refreshButton.disabled = true;
     }
 }
