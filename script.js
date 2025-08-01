@@ -70,7 +70,7 @@ function generateChallenges(challengeCategory, targetContainer){
     let shuffledChallengeList;
     
     if([`health`, `social`, `creative`].includes(challengeCategory)){
-        filteredList = challengeList.filter(action => action.category.includes(challengeCategory) && action.categories)
+        filteredList = challengeList.filter(action => action.category.includes(challengeCategory) && action.category)
     } //todo
     
     shuffledChallengeList = filteredList.sort(() => Math.random() - 0.5); // shuffle
