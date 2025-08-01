@@ -38,8 +38,8 @@ const challengeList = [
     { category: [`health`, `creative`], text: `Pick up an old hobby 🖍️`},
     { category: `creative`, text: `Grow a plant 🌱`},
     { category: [`health`, `social`], text: `Explore a new area 🚗`},
-    { category: `social`, text: `Join a club (TODO)`},
-    { category: `social`, text: `Attend an event at the local library (TODO)`},
+    { category: `social`, text: `Join a club ♣️`},
+    { category: `social`, text: `Attend an event at the local library 📖`},
     { category: [`health`, `creative`], text: `Try a new recipe 🥘`} //TODO: 5:50 pm 8/1 --> extract categories and work on general challenges first, then do specific challenge list generation
 ]
 
