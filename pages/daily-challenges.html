@@ -13,11 +13,11 @@
             Refresh below to view different challenges.</p>
 
     <!-- Generate Mixed Challenges -->
-    <button onclick="generateTodaysChallenges()" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
+    <button onclick="generateTodaysChallenges('', 'displayChallengeList')" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
     <br>
     <div id="displayChallengeList" class="challengeContainer"></div>
     <br>
-    <button onclick="refresh()" id="refreshButton" class="challengeButtons">Refresh</button>
+    <button onclick="refresh('', 'displayChallengeList')" id="refreshButton" class="challengeButtons">Refresh</button>
         <p id="refreshLeft"></p>
         <p id="refreshError"></p>
 
@@ -38,9 +38,9 @@
     
     <table width=100%>
         <tr>
-            <th width=33.33%><button onclick="generateChallenges()" id="healthChallenge" class="challengeButtons">Health</button></th> <!-- TODO: basically make generateChallenges() take in a specific type of list then make generateBoxes take in a certain doi elem id, currently dispalyChallenge list, so that it can print in a different div area !-->
-            <th width=33.33%><button onclick="generateChallenges()" id="socialChallenge" class="challengeButtons">Social</button></th>
-            <th width=33.33%><button onclick="generateChallenges()" id="creativeChallenge" class="challengeButtons">Creative</button></th>
+            <th width=33.33%><button onclick="generateChallenges('health', 'displayHealthChallengeList')" id="healthChallenge" class="challengeButtons">Health</button></th> <!-- TODO: basically make generateChallenges() take in a specific type of list then make generateBoxes take in a certain doi elem id, currently displayChallenge list, so that it can print in a different div area !-->
+            <th width=33.33%><button onclick="generateChallenges('social', 'displaySocialChallengeList')" id="socialChallenge" class="challengeButtons">Social</button></th>
+            <th width=33.33%><button onclick="generateChallenges('creative', 'displayCreativeChallengeList')" id="creativeChallenge" class="challengeButtons">Creative</button></th>
         </tr>
         <tr>
             <th><div id="displayHealthChallengeList">health activities</div></th>

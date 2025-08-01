@@ -21,24 +21,26 @@ let days = 0; // TODO: days you completed all tasks
 
 //challenge list
 const challengeList = [
-    `Go for a walk 🚶`,
-    `Reflect on your day ✏️`,
-    `Compliment a stranger 💐`,
-    `Make a new friend 💛`,
-    `Donate an item 🎁`,
-    `Volunteer at a local shelter 🤝`,
-    `Call someone you haven't talked to in a while ☎️`,
-    `Help a stranger 🤝`,
-    `Try a new food 🍔`,
-    `Catch up with old friends 🧑‍🤝‍🧑`,
-    `Learn a new game 🎲`,
-    `Play a sport 🏓`,
-    `Pick up an old hobby 🖍️`,
-    `Grow a plant 🌱`,
-    `Clean your home 🏠`,
-    `Go out of your comfort zone 🪂`,
-    `Explore a new area 🚗`,
-    `Try a new recipe 🥘`
+    { category: `health`, text: `Go for a walk 🚶`},
+    { category: [`health`, `social`], text: `Play a sport 🏓`},
+    { category: `health`, text: `Clean your home 🏠`},
+    { category: [`health`, `social`], text: `Go out of your comfort zone 🪂`},
+    { category: `health`, text: `Reflect on your day ✏️`},
+    { category: `social`, text: `Compliment a stranger 💐`},
+    { category: `social`, text: `Make a new friend 💛`},
+    { category: `social`, text: `Donate an item 🎁`},
+    { category: `social`, text: `Volunteer at a local shelter 🤝`},
+    { category: `social`, text: `Call someone you haven't talked to in a while ☎️`},
+    { category: `social`, text: `Help a stranger 🤝`},
+    { category: `creative`, text: `Try a new food 🍔`},
+    { category: `social`, text: `Catch up with old friends 🧑‍🤝‍🧑`},
+    { category: [`social, creative`], text: `Learn a new game 🎲`},
+    { category: [`health`, `creative`], text: `Pick up an old hobby 🖍️`},
+    { category: `creative`, text: `Grow a plant 🌱`},
+    { category: [`health`, `social`], text: `Explore a new area 🚗`},
+    { category: `social`, text: `Join a club (TODO)`},
+    { category: `social`, text: `Attend an event at the local library (TODO)`},
+    { category: [`health`, `creative`], text: `Try a new recipe 🥘`} //TODO: 5:50 pm 8/1 --> extract categories and work on general challenges first, then do specific challenge list generation
 ]
 
 // runs on page load
@@ -57,22 +59,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
 ///////////////////////////////////////////////////////////
 
-function generateTodaysChallenges(){
-    generateChallenges();
+function generateTodaysChallenges(challengeCategory, targetContainer){
+    generateChallenges(challengeCategory, targetContainer);
     document.getElementById(`todaysChallengesButton`).style.display = `none`;
     refreshButton.disabled = false;
 }
 
-function generateChallenges(){
-    let shuffledChallengeList = challengeList.sort(() => Math.random() - 0.5); // shuffle
+function generateChallenges(challengeCategory, targetContainer){
+    let filteredList = challengeList;
+    let shuffledChallengeList;
+    
+    if([`health`, `social`, `creative`].includes(challengeCategory)){
+        filteredList = challengeList.filter(action => action.category.includes(challengeCategory) && action.categories)
+    } //todo
+    
+    shuffledChallengeList = filteredList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
 
-    generateChallengeBoxes(selectedChallengeList);
+    generateChallengeBoxes(selectedChallengeList, targetContainer);
     generateCounter++;
 }
 
-function generateChallengeBoxes(selectedChallengeList){
-    const challengeListContainer = document.getElementById(`displayChallengeList`);
+function generateChallengeBoxes(selectedChallengeList, targetContainer){
+    const challengeListContainer = document.getElementById(targetContainer);
     challengeListContainer.innerHTML = ``;
 
     selectedChallengeList.forEach((action, i) => { // for each challenge (action) in the selected list of 3
@@ -80,7 +89,8 @@ function generateChallengeBoxes(selectedChallengeList){
         box.className = `challengeBox`;
         // box.textContent = `${i + 1}. ${action}`;
         box.innerHTML = `
-        ${i + 1}. ${action}
+        ${i + 1}. ${action.text}
+        <!-- TODO: optional, add ${action.description} if want descp of challenge-->
         <br><br>
         <button onclick="markAsDone(this)" id="doneButton" class="challengeButtons">✅ Mark as Done</button>
         `; // note 1 // TODO: future, want doneButton to be in challengeButtons class to delete extra css (they have same func...)
@@ -99,15 +109,15 @@ function markAsDone(button){
     resetButton.disabled = false;
 }
 
-function refresh(){
+function refresh(challengeCategory, targetContainer){
     if(refreshLeft > 0){
         refreshLeft--;
         refreshLeftMessage.textContent = `You have ${refreshLeft} refresh left.`;
-        generateChallenges();
+        generateChallenges(challengeCategory, targetContainer);
     }
     else{
         refreshMessage.textContent = ``;
-        generateChallenges();
+        generateChallenges(challengeCategory, targetContainer);
     }
 
     if(refreshLeft == 0){
