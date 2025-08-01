@@ -59,19 +59,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
 ///////////////////////////////////////////////////////////
 
-function generateTodaysChallenges(challengeCategory, targetContainer){
-    generateChallenges(challengeCategory, targetContainer);
+function generateTodaysChallenges(challengeCategory, targetContainer, thisButton){
+    generateChallenges(challengeCategory, targetContainer, thisButton);
     document.getElementById(`todaysChallengesButton`).style.display = `none`;
     refreshButton.disabled = false;
 }
 
-function generateChallenges(challengeCategory, targetContainer){
+function generateChallenges(challengeCategory, targetContainer, thisButton){
     let filteredList = challengeList;
     let shuffledChallengeList;
     
     if([`health`, `social`, `creative`].includes(challengeCategory)){
         filteredList = challengeList.filter(action => action.category.includes(challengeCategory) && action.category)
-    } //todo
+        thisButton.disabled = true;
+    }
     
     shuffledChallengeList = filteredList.sort(() => Math.random() - 0.5); // shuffle
     const selectedChallengeList = shuffledChallengeList.slice(0, 3); // choose first 3 in shuffled list
@@ -109,15 +110,15 @@ function markAsDone(button){
     resetButton.disabled = false;
 }
 
-function refresh(challengeCategory, targetContainer){
+function refresh(challengeCategory, targetContainer, thisButton){
     if(refreshLeft > 0){
         refreshLeft--;
         refreshLeftMessage.textContent = `You have ${refreshLeft} refresh left.`;
-        generateChallenges(challengeCategory, targetContainer);
+        generateChallenges(challengeCategory, targetContainer, thisButton);
     }
     else{
         refreshMessage.textContent = ``;
-        generateChallenges(challengeCategory, targetContainer);
+        generateChallenges(challengeCategory, targetContainer, thisButton);
     }
 
     if(refreshLeft == 0){
