@@ -10,9 +10,9 @@ let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is
 const scoreMessage = document.getElementById(`userScore`);
 const resetButton = document.getElementById(`resetButton`);
 const refreshButton = document.getElementById(`refreshButton`);
-const healthRefreshButton = document.getElementById(`healthRefreshButton`);
-const spcialRefreshButton = document.getElementById(`socialRefreshButton`);
-const creativeRefreshButton = document.getElementById(`creativeRefreshButton`);
+const refreshHealthButton = document.getElementById(`refreshHealthButton`);
+const refreshSocialButton = document.getElementById(`refreshSocialButton`);
+const refreshCreativeButton = document.getElementById(`refreshCreativeButton`);
 
 
 //counters
@@ -73,7 +73,10 @@ function generateChallenges(challengeCategory, targetContainer, thisButton){
     
     if([`health`, `social`, `creative`].includes(challengeCategory)){
         filteredList = challengeList.filter(action => action.category.includes(challengeCategory) && action.category)
-        thisButton.disabled = true;
+        
+        if(!thisButton.id.startsWith(`refresh`)){
+            thisButton.disabled = true;
+        }
     }
     
     shuffledChallengeList = filteredList.sort(() => Math.random() - 0.5); // shuffle
@@ -114,21 +117,22 @@ function markAsDone(button){
 
 function refresh(challengeCategory, targetContainer, targetMessage, thisButton){
     const refreshMessage = document.getElementById(targetMessage);
-    const refreshLeft = refreshCounters[challengeCategory];
 
-    if(refreshLeft > 0){
+    if(refreshCounters[challengeCategory] > 0){
         refreshCounters[challengeCategory]--;
-        refreshMessage.textContent = `You have ${refreshCounters[challengeCategory]} refresh left.`;
         generateChallenges(challengeCategory, targetContainer, thisButton);
+
+        if(refreshCounters[challengeCategory] == 0){
+            refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges or generate by category.`;
+            thisButton.disabled = true;
+        }
+        else{
+            refreshMessage.textContent = `You have ${refreshCounters[challengeCategory]} refresh left.`;
+        }
     }
     else{
         refreshMessage.textContent = ``;
         generateChallenges(challengeCategory, targetContainer, thisButton);
-    }
-
-    if(refreshLeft == 0){
-        refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges or generate by category.`;
-        thisButton.disabled = true;
     }
 }
 
