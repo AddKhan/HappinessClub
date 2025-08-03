@@ -8,14 +8,16 @@ let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is
 
 // DOI elements
 const scoreMessage = document.getElementById(`userScore`);
-const refreshMessage = document.getElementById(`refreshError`);
-const refreshLeftMessage = document.getElementById(`refreshLeft`);
 const resetButton = document.getElementById(`resetButton`);
 const refreshButton = document.getElementById(`refreshButton`);
+const healthRefreshButton = document.getElementById(`healthRefreshButton`);
+const spcialRefreshButton = document.getElementById(`socialRefreshButton`);
+const creativeRefreshButton = document.getElementById(`creativeRefreshButton`);
+
 
 //counters
 let generateCounter = 0;
-let refreshLeft = 2;
+let refreshCounters = { health: 2, social: 2, creative: 2, all: 2};
 let dailyChallengesDone = 0; // TODO: make a limit to daily challenges done (3), would need to figure out time keeping first ?
 let days = 0; // TODO: days you completed all tasks
 
@@ -110,10 +112,13 @@ function markAsDone(button){
     resetButton.disabled = false;
 }
 
-function refresh(challengeCategory, targetContainer, thisButton){
+function refresh(challengeCategory, targetContainer, targetMessage, thisButton){
+    const refreshMessage = document.getElementById(targetMessage);
+    const refreshLeft = refreshCounters[challengeCategory];
+
     if(refreshLeft > 0){
-        refreshLeft--;
-        refreshLeftMessage.textContent = `You have ${refreshLeft} refresh left.`;
+        refreshCounters[challengeCategory]--;
+        refreshMessage.textContent = `You have ${refreshCounters[challengeCategory]} refresh left.`;
         generateChallenges(challengeCategory, targetContainer, thisButton);
     }
     else{
@@ -122,9 +127,8 @@ function refresh(challengeCategory, targetContainer, thisButton){
     }
 
     if(refreshLeft == 0){
-        refreshLeftMessage.textContent = ``;
         refreshMessage.textContent = `You don't have any refreshes left! Please attempt the current challenges or generate by category.`;
-        refreshButton.disabled = true;
+        thisButton.disabled = true;
     }
 }
 

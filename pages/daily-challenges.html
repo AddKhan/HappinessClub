@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css"> <!-- TODO: link bootstrap css-->
     <title>Daily Challenges | Happiness Club</title>
 </head>
 
@@ -13,13 +13,12 @@
             Refresh below to view different challenges.</p>
 
     <!-- Generate Mixed Challenges -->
-    <button onclick="generateTodaysChallenges('', 'displayChallengeList', this)" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
+    <button onclick="generateTodaysChallenges('all', 'displayChallengeList', this)" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
     <br>
     <div id="displayChallengeList" class="challengeContainer"></div>
     <br>
-    <button onclick="refresh('', 'displayChallengeList', this)" id="refreshButton" class="challengeButtons">Refresh</button>
-        <p id="refreshLeft"></p>
-        <p id="refreshError"></p>
+    <button onclick="refresh('all', 'displayChallengeList', 'refreshMessage', this)" id="refreshButton" class="challengeButtons">Refresh</button>
+        <p id="refreshMessage"></p>
 
     <br><br>
     
@@ -46,6 +45,20 @@
             <th><div id="displayHealthChallengeList">health activities</div></th>
             <th><div id="displaySocialChallengeList">social activities</div></th>
             <th><div id="displayCreativeChallengeList">creative activities</div></th>
+        </tr>
+        <tr>
+            <th>
+                <button onclick="refresh('health', 'displayHealthChallengeList', 'healthRefreshMessage', this)" id="healthRefreshButton" class="challengeButtons">Refresh1</button>
+                    <p id="healthRefreshMessage"></p>
+            </th>
+            <th>
+                <button onclick="refresh('social', 'displaySocialChallengeList', 'socialRefreshMessage', this)" id="socialRefreshButton" class="challengeButtons">Refresh2</button>
+                    <p id="socialRefreshMessage"></p>
+            </th>
+            <th>
+                <button onclick="refresh('creative', 'displayCreativeChallengeList', 'creativeRefreshMessage', this)" id="creativeRefreshButton" class="challengeButtons">Refresh3</button>
+                    <p id="creativeRefreshMessage"></p>
+            </th>
         </tr>
     </table>
 
