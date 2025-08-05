@@ -5,18 +5,6 @@
 
 /*** GENERAL ***/
 
-#homepage{
-    background-color: rgb(175, 235, 255);
-    text-align: center;
-    font-family: 'Gill Sans MT';
-}
-
-#dailyChallengesPage{
-    background-color: rgb(175, 235, 255);
-    text-align: center;
-    font-family: 'Gill Sans MT';
-}
-
 .linkButtons{
     background-color: rgb(252, 255, 204);
     color: black;
@@ -36,7 +24,53 @@
 
 /*** HOMEPAGE ***/
 
+#homepage{
+  background-color: rgb(175, 235, 255);
+  font-family: 'Gill Sans MT', sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcomeContainer{
+  background-color: rgb(252, 255, 204);
+  color:black;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 30px 50px;
+  border-radius: 15px;
+  border: rgb(202, 202, 149) solid 5px;
+  box-shadow: 0 8px 20px rgba(70, 121, 138, 0.831);
+  max-width: 600px;
+  margin: 0 15px;
+  animation: popUp 0.6s ease forwards;
+}
+
+#welcomeContainer p{
+    color: rgb(70, 70, 30);
+}
+
+@keyframes popUp{
+  0%{
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /*** DAILY CHALLENGES PAGE ***/
+
+#dailyChallengesPage{
+    background-color: rgb(175, 235, 255);
+    text-align: center;
+    font-family: 'Gill Sans MT';
+}
 
 /* Challenge Buttons */
 
