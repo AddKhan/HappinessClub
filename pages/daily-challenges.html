@@ -13,11 +13,11 @@
             Refresh below to view different challenges.</p>
 
     <!-- Generate Mixed Challenges -->
-    <button onclick="generateTodaysChallenges('all', 'displayChallengeList', this)" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
+    <button onclick="generateTodaysChallenges('all', 'displayChallengeList', document.getElementById('refreshGeneralButton'), this)" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
     <br>
     <div id="displayChallengeList" class="challengeContainer"></div>
     <br>
-    <button onclick="refresh('all', 'displayChallengeList', 'refreshMessage', this)" id="refreshButton" class="challengeButtons">Refresh</button>
+    <button onclick="refresh('all', 'displayChallengeList', 'refreshMessage', this)" id="refreshGeneralButton" class="challengeButtons">Refresh</button>
         <p id="refreshMessage"></p>
 
     <br><br>
@@ -37,28 +37,24 @@
     
     <table width=100%>
         <tr>
-            <th width=33.33%><button onclick="generateChallenges('health', 'displayHealthChallengeList', this)" id="healthChallenge" class="challengeButtons">Health</button></th> <!-- TODO: basically make generateChallenges() take in a specific type of list then make generateBoxes take in a certain doi elem id, currently displayChallenge list, so that it can print in a different div area !-->
-            <th width=33.33%><button onclick="generateChallenges('social', 'displaySocialChallengeList', this)" id="socialChallenge" class="challengeButtons">Social</button></th>
-            <th width=33.33%><button onclick="generateChallenges('creative', 'displayCreativeChallengeList', this)" id="creativeChallenge" class="challengeButtons">Creative</button></th>
+            <th width=33.33%><button onclick="generateTodaysChallenges('health', 'displayHealthChallengeList', document.getElementById('refreshHealthButton'), this)" id="healthChallenge" class="challengeButtons">Health</button></th> <!-- TODO: basically make generateChallenges() take in a specific type of list then make generateBoxes take in a certain doi elem id, currently displayChallenge list, so that it can print in a different div area !-->
+            <th width=33.33%><button onclick="generateTodaysChallenges('social', 'displaySocialChallengeList', document.getElementById('refreshSocialButton'), this)" id="socialChallenge" class="challengeButtons">Social</button></th>
+            <th width=33.33%><button onclick="generateTodaysChallenges('creative', 'displayCreativeChallengeList', document.getElementById('refreshCreativeButton'), this)" id="creativeChallenge" class="challengeButtons">Creative</button></th>
         </tr>
         <tr>
-            <th><div id="displayHealthChallengeList">health activities</div></th>
-            <th><div id="displaySocialChallengeList">social activities</div></th>
-            <th><div id="displayCreativeChallengeList">creative activities</div></th>
+            <th><div id="displayHealthChallengeList">💖</div></th>
+            <th><div id="displaySocialChallengeList">🫂</div></th>
+            <th><div id="displayCreativeChallengeList">🎨</div></th>
         </tr>
         <tr>
-            <th>
-                <button onclick="refresh('health', 'displayHealthChallengeList', 'refreshHealthMessage', this)" id="refreshHealthButton" class="challengeButtons">Refresh1</button>
-                    <p id="refreshHealthMessage"></p>
-            </th>
-            <th>
-                <button onclick="refresh('social', 'displaySocialChallengeList', 'refreshSocialMessage', this)" id="refreshSocialButton" class="challengeButtons">Refresh2</button>
-                    <p id="refreshSocialMessage"></p>
-            </th>
-            <th>
-                <button onclick="refresh('creative', 'displayCreativeChallengeList', 'refreshCreativeMessage', this)" id="refreshCreativeButton" class="challengeButtons">Refresh3</button>
-                    <p id="refreshCreativeMessage"></p>
-            </th>
+            <th><button onclick="refresh('health', 'displayHealthChallengeList', 'refreshHealthMessage', this)" id="refreshHealthButton" class="challengeButtons">Refresh 💖</button></th>
+            <th><button onclick="refresh('social', 'displaySocialChallengeList', 'refreshSocialMessage', this)" id="refreshSocialButton" class="challengeButtons">Refresh 🫂</button></th>
+            <th><button onclick="refresh('creative', 'displayCreativeChallengeList', 'refreshCreativeMessage', this)" id="refreshCreativeButton" class="challengeButtons">Refresh 🎨</button></th>
+        </tr>
+        <tr>
+            <td><p id="refreshHealthMessage"></p></td>
+            <td><p id="refreshSocialMessage"></p></td>
+            <td><p id="refreshCreativeMessage"></p></td>
         </tr>
     </table>
 

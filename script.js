@@ -9,7 +9,7 @@ let myScore = Number(localStorage.getItem('myScore')) || 0; // begining score is
 // DOI elements
 const scoreMessage = document.getElementById(`userScore`);
 const resetButton = document.getElementById(`resetButton`);
-const refreshButton = document.getElementById(`refreshButton`);
+const refreshGeneralButton = document.getElementById(`refreshGeneralButton`);
 const refreshHealthButton = document.getElementById(`refreshHealthButton`);
 const refreshSocialButton = document.getElementById(`refreshSocialButton`);
 const refreshCreativeButton = document.getElementById(`refreshCreativeButton`);
@@ -55,16 +55,19 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     if(generateCounter == 0){
-        refreshButton.disabled = true;
+        refreshGeneralButton.disabled = true; //todo: 6:50 pm 8/3 -- refresh is perm disabled bc of these lines but big things is i want to have category refreshes disabled until first generated
+        refreshHealthButton.disabled = true;
+        refreshSocialButton.disabled = true;
+        refreshCreativeButton.disabled = true;
     }
 });
 
 ///////////////////////////////////////////////////////////
 
-function generateTodaysChallenges(challengeCategory, targetContainer, thisButton){
+function generateTodaysChallenges(challengeCategory, targetContainer, thisRefreshButton, thisButton){
     generateChallenges(challengeCategory, targetContainer, thisButton);
-    document.getElementById(`todaysChallengesButton`).style.display = `none`;
-    refreshButton.disabled = false;
+    thisButton.style.display = `none`;
+    thisRefreshButton.disabled = false;
 }
 
 function generateChallenges(challengeCategory, targetContainer, thisButton){
