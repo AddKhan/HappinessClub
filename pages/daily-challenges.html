@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css"> <!-- TODO: link bootstrap css-->
     <title>Daily Challenges | Happiness Club</title>
 </head>
 
@@ -12,25 +12,61 @@
         <p>Complete 3 challenges per day to increase your score!<br>
             Refresh below to view different challenges.</p>
 
-    <button onclick="generateTodaysChallenges()" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
-    <br>
-    <div id="displayChallengeList" class="challengeContainer"></div>
-    <br>
-    <button onclick="refresh()" id="refreshButton" class="challengeButtons">Refresh</button>
-        <p id="refreshLeft"></p>
-        <p id="refreshError"></p>
-
-    <br><br>
-
+    <!-- User Score -->
     <div id="userScoreBox"> <!-- TODO: style userScoreBox -->
         <p id="userScore"></p>
     </div>
 
+    <!-- Generate General (Mixed) Challenges -->
+    <button onclick="generateTodaysChallenges('all', 'displayChallengeList', document.getElementById('refreshGeneralButton'), this)" id="todaysChallengesButton" class="challengeButtons">Today's Challenges</button>
+    <br>
+    <div id="displayChallengeList" class="challengeContainer"></div>
+    <br>
+    <button onclick="refresh('all', 'displayChallengeList', 'refreshMessage', this)" id="refreshGeneralButton" class="challengeButtons">Refresh</button>
+        <p id="refreshMessage"></p>
+
+    <br><br>
+
+    <!-- Challenge Categories -->
+    <h3>🌟 Challenge Categories 🌟</h3> 
+    
+    <table width=100%>
+        <tr>
+            <th width=33.33%> Health Challenges <br><br> </th>
+            <th width=33.33%> Social Challenges <br><br> </th>
+            <th width=33.33%> Creative Challenges <br><br> </th>
+
+        </tr>
+        <tr>
+            <th><button onclick="generateTodaysChallenges('health', 'displayHealthChallengeList', document.getElementById('refreshHealthButton'), this)" id="healthChallenge" class="challengeButtons">Generate</button></th>
+            <th><button onclick="generateTodaysChallenges('social', 'displaySocialChallengeList', document.getElementById('refreshSocialButton'), this)" id="socialChallenge" class="challengeButtons">Generate</button></th>
+            <th><button onclick="generateTodaysChallenges('creative', 'displayCreativeChallengeList', document.getElementById('refreshCreativeButton'), this)" id="creativeChallenge" class="challengeButtons">Generate</button></th>
+        </tr>
+        <tr>
+            <td><div id="displayHealthChallengeList">💖</div></td>
+            <td><div id="displaySocialChallengeList">🫂</div></td>
+            <td><div id="displayCreativeChallengeList">🎨</div></td>
+        </tr>
+        <tr>
+            <td><button onclick="refresh('health', 'displayHealthChallengeList', 'refreshHealthMessage', this)" id="refreshHealthButton" class="challengeButtons">Refresh 💖</button></td>
+            <td><button onclick="refresh('social', 'displaySocialChallengeList', 'refreshSocialMessage', this)" id="refreshSocialButton" class="challengeButtons">Refresh 🫂</button></td>
+            <td><button onclick="refresh('creative', 'displayCreativeChallengeList', 'refreshCreativeMessage', this)" id="refreshCreativeButton" class="challengeButtons">Refresh 🎨</button></td>
+        </tr>
+        <tr>
+            <td><p id="refreshHealthMessage"></p></td>
+            <td><p id="refreshSocialMessage"></p></td>
+            <td><p id="refreshCreativeMessage"></p></td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <!-- Reset Score -->
     <button onclick="resetScore()" id="resetButton" class="challengeButtons">Reset Score</button>
     <p id="resetMessage"></p>
 
     <!-- HOMEPAGE LINK-->
-    <br><br>
+    <br>
     <a href="../index.html" target="_self">
         <button id="returnHomepage" class="linkButtons">Return to Homepage</button> <!-- TODO: formate linkButtons class-->
     </a>
